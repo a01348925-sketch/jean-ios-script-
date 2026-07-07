@@ -14,7 +14,7 @@ _G.Hitbox_Size   = 15
 _G.Parts_Active  = { UpperTorso = false, HumanoidRootPart = false, LeftUpperArm = false, RightUpperArm = false, LeftUpperLeg = false, RightUpperLeg = false }
 _G.Visuals       = { Box = false, Names = false, Dist = false, Weapon = false, HealthBar = false, Tracers = false }
 _G.Combat        = { TriggerBot = false, NoRecoil = false }
-_G.Misc          = { Speed_On = false, SpeedVal = 16, FullBright = false, FlyMoto = false, FlyMotoSpeed = 50, FlyUp = false, FlyDown = false, FlyChar = false, FlyCharSpeed = 19, AntiRK = false, AntiIntrusos = false }
+_G.Misc          = { Speed_On = false, SpeedVal = 16, FullBright = false, FlyMoto = false, FlyMotoSpeed = 50, FlyUp = false, FlyDown = false, FlyChar = false, FlyCharSpeed = 19, AntiRK = false }
 local DeletedObjects = {}
 
 -- ════════ ADMIN SYSTEM ════════
@@ -106,15 +106,15 @@ Instance.new("UICorner", MF).CornerRadius = UDim.new(0, 12)
 
 -- Title bar
 local TB = Instance.new("Frame", MF); TB.Size = UDim2.new(1,0,0,56); TB.BackgroundColor3=Color3.fromRGB(14,14,22); TB.BorderSizePixel=0; Instance.new("UICorner",TB).CornerRadius=UDim.new(0,12)
-local HT = Instance.new("TextLabel", TB); HT.Size=UDim2.new(1,-50,0,28); HT.Position=UDim2.new(0,16,0,7); HT.BackgroundTransparency=1; HT.Text="JEAN_IOS // Script Hub"; HT.TextColor3=Color3.new(1,1,1); HT.Font=Enum.Font.GothamBold; HT.TextSize=16; HT.TextXAlignment=Enum.TextXAlignment.Left
-local HS = Instance.new("TextLabel", TB); HS.Size=UDim2.new(1,-50,0,18); HS.Position=UDim2.new(0,16,0,33); HS.BackgroundTransparency=1; HS.Text=IsAdmin and "ADMIN ⭐" or "jean14_17"; HS.TextColor3=IsAdmin and Color3.fromRGB(255,215,0) or Color3.fromRGB(52,199,89); HS.Font=Enum.Font.Gotham; HS.TextSize=12; HS.TextXAlignment=Enum.TextXAlignment.Left
-local MinB = Instance.new("TextButton", TB); MinB.Size=UDim2.new(0,26,0,26); MinB.Position=UDim2.new(1,-34,0,15); MinB.Text="−"; MinB.BackgroundColor3=Color3.fromRGB(50,50,65); MinB.TextColor3=Color3.new(1,1,1); MinB.Font=Enum.Font.GothamBold; MinB.TextSize=16; MinB.BorderSizePixel=0; Instance.new("UICorner",MinB).CornerRadius=UDim.new(0,6)
+local HT = Instance.new("TextLabel", TB); HT.Size=UDim2.new(1,-50,0,28); HT.Position=UDim2.new(0,16,0,7); HT.BackgroundTransparency=1; HT.Text="JEAN_IOS // Script Hub"; HT.TextColor3=Color3.new(1,1,1); HT.Font=Enum.Font.GothamBold; HT.TextSize=18
+local HS = Instance.new("TextLabel", TB); HS.Size=UDim2.new(1,-50,0,18); HS.Position=UDim2.new(0,16,0,33); HS.BackgroundTransparency=1; HS.Text=IsAdmin and "ADMIN ⭐" or "jean14_17"; HS.TextColor3=Color3.fromRGB(52,199,89); HS.Font=Enum.Font.GothamBold; HS.TextSize=11
+local MinB = Instance.new("TextButton", TB); MinB.Size=UDim2.new(0,26,0,26); MinB.Position=UDim2.new(1,-34,0,15); MinB.Text="−"; MinB.BackgroundColor3=Color3.fromRGB(50,50,65); MinB.TextColor3=Color3.new(1,1,1); MinB.Font=Enum.Font.GothamBold; MinB.TextSize=20; MinB.BorderSizePixel=0; Instance.new("UICorner",MinB).CornerRadius=UDim.new(0,6)
 
 -- Mini bar
-local MB = Instance.new("Frame", ScreenGui); MB.Size=UDim2.new(0,220,0,36); MB.Position=UDim2.new(0.5,-110,0,8); MB.BackgroundColor3=Color3.fromRGB(10,10,14); MB.Visible=false; MB.Active=true; MB.Draggable=true; MB.BorderSizePixel=0; Instance.new("UICorner",MB).CornerRadius=UDim.new(0,10)
+local MB = Instance.new("Frame", ScreenGui); MB.Size=UDim2.new(0,220,0,36); MB.Position=UDim2.new(0.5,-110,0,8); MB.BackgroundColor3=Color3.fromRGB(10,10,14); MB.Visible=false; MB.Active=true; MB.BorderSizePixel=0; Instance.new("UICorner",MB).CornerRadius=UDim.new(0,8)
 local MBS = Instance.new("UIStroke",MB); MBS.Color=Color3.fromRGB(52,199,89); MBS.Thickness=1.2
-local ML = Instance.new("TextLabel",MB); ML.Size=UDim2.new(1,-38,1,0); ML.Position=UDim2.new(0,12,0,0); ML.BackgroundTransparency=1; ML.Text="JEAN_IOS"; ML.TextColor3=Color3.fromRGB(52,199,89); ML.Font=Enum.Font.GothamBold; ML.TextSize=14; ML.TextXAlignment=Enum.TextXAlignment.Left
-local MaxB = Instance.new("TextButton",MB); MaxB.Size=UDim2.new(0,26,0,26); MaxB.Position=UDim2.new(1,-32,0.5,-13); MaxB.Text="+"; MaxB.BackgroundColor3=Color3.fromRGB(52,199,89); MaxB.TextColor3=Color3.fromRGB(0,0,0); MaxB.Font=Enum.Font.GothamBold; MaxB.TextSize=16; MaxB.BorderSizePixel=0; Instance.new("UICorner",MaxB).CornerRadius=UDim.new(0,6)
+local ML = Instance.new("TextLabel",MB); ML.Size=UDim2.new(1,-38,1,0); ML.Position=UDim2.new(0,12,0,0); ML.BackgroundTransparency=1; ML.Text="JEAN_IOS"; ML.TextColor3=Color3.fromRGB(52,199,89); ML.Font=Enum.Font.GothamBold; ML.TextSize=12
+local MaxB = Instance.new("TextButton",MB); MaxB.Size=UDim2.new(0,26,0,26); MaxB.Position=UDim2.new(1,-32,0.5,-13); MaxB.Text="+"; MaxB.BackgroundColor3=Color3.fromRGB(52,199,89); MaxB.TextColor3=Color3.new(0,0,0); MaxB.Font=Enum.Font.GothamBold; MaxB.TextSize=16; MaxB.BorderSizePixel=0; Instance.new("UICorner",MaxB).CornerRadius=UDim.new(0,4)
 MinB.MouseButton1Click:Connect(function() MF.Visible=false; MB.Visible=true end)
 MaxB.MouseButton1Click:Connect(function() MF.Visible=true; MB.Visible=false end)
 
@@ -124,7 +124,7 @@ local SBL = Instance.new("UIListLayout",SB); SBL.Padding=UDim.new(0,5)
 local SBP = Instance.new("UIPadding",SB); SBP.PaddingTop=UDim.new(0,4)
 
 -- Content
-local CBG = Instance.new("Frame", MF); CBG.Size=UDim2.new(1,-148,1,-86); CBG.Position=UDim2.new(0,142,0,58); CBG.BackgroundColor3=Color3.fromRGB(14,14,22); CBG.BorderSizePixel=0; Instance.new("UICorner",CBG).CornerRadius=UDim.new(0,10)
+local CBG = Instance.new("Frame", MF); CBG.Size=UDim2.new(1,-148,1,-86); CBG.Position=UDim2.new(0,142,0,58); CBG.BackgroundColor3=Color3.fromRGB(14,14,22); CBG.BorderSizePixel=0; Instance.new("UICorner",CBG).CornerRadius=UDim.new(0,8)
 
 local Tabs, TabBtns = {}, {}
 local function MkTab(n)
@@ -148,7 +148,7 @@ local function SetTab(n)
     end
 end
 local function MkTabBtn(lbl, n)
-    local b=Instance.new("TextButton",SB); b.Size=UDim2.new(1,0,0,42); b.BackgroundColor3=Color3.fromRGB(20,20,30); b.TextColor3=Color3.fromRGB(150,150,160); b.Text=lbl; b.Font=Enum.Font.GothamBold; b.TextSize=12; b.BorderSizePixel=0; Instance.new("UICorner",b).CornerRadius=UDim.new(0,8)
+    local b=Instance.new("TextButton",SB); b.Size=UDim2.new(1,0,0,42); b.BackgroundColor3=Color3.fromRGB(20,20,30); b.TextColor3=Color3.fromRGB(150,150,160); b.Text=lbl; b.Font=Enum.Font.GothamBold; b.TextSize=10; b.BorderSizePixel=0; Instance.new("UICorner",b).CornerRadius=UDim.new(0,6)
     b.MouseButton1Click:Connect(function() SetTab(n) end); TabBtns[n]=b
 end
 MkTabBtn("⚔️ Combat","Combat"); MkTabBtn("👁️ Visuals","Visuals"); MkTabBtn("🚜 Farm","Farm"); MkTabBtn("⚙️ Misc","Misc"); MkTabBtn("🧭 Teleport","Teleport")
@@ -156,10 +156,10 @@ MkTabBtn("⚔️ Combat","Combat"); MkTabBtn("👁️ Visuals","Visuals"); MkTab
 -- ── UI Helpers ──
 local function IosRow(par, title, desc, init, cb)
     local row=Instance.new("Frame",par); row.Size=UDim2.new(1,0,0,62); row.BackgroundColor3=Color3.fromRGB(18,18,26); row.BorderSizePixel=0; Instance.new("UICorner",row).CornerRadius=UDim.new(0,10)
-    local tl=Instance.new("TextLabel",row); tl.Size=UDim2.new(1,-72,0,26); tl.Position=UDim2.new(0,14,0,8); tl.BackgroundTransparency=1; tl.Text=title; tl.TextColor3=Color3.new(1,1,1); tl.Font=Enum.Font.GothamBold; tl.TextSize=13; tl.TextXAlignment=Enum.TextXAlignment.Left
-    local sl=Instance.new("TextLabel",row); sl.Size=UDim2.new(1,-72,0,18); sl.Position=UDim2.new(0,14,0,36); sl.BackgroundTransparency=1; sl.Text=desc; sl.TextColor3=Color3.fromRGB(85,85,100); sl.Font=Enum.Font.Gotham; sl.TextSize=11; sl.TextXAlignment=Enum.TextXAlignment.Left
-    local pill=Instance.new("Frame",row); pill.Size=UDim2.new(0,46,0,28); pill.Position=UDim2.new(1,-58,0.5,-14); pill.BackgroundColor3=init and Color3.fromRGB(52,199,89) or Color3.fromRGB(48,48,62); pill.BorderSizePixel=0; Instance.new("UICorner",pill).CornerRadius=UDim.new(1,0)
-    local kn=Instance.new("Frame",pill); kn.Size=UDim2.new(0,22,0,22); kn.Position=init and UDim2.new(1,-25,0.5,-11) or UDim2.new(0,3,0.5,-11); kn.BackgroundColor3=Color3.new(1,1,1); kn.BorderSizePixel=0; Instance.new("UICorner",kn).CornerRadius=UDim.new(1,0)
+    local tl=Instance.new("TextLabel",row); tl.Size=UDim2.new(1,-72,0,26); tl.Position=UDim2.new(0,14,0,8); tl.BackgroundTransparency=1; tl.Text=title; tl.TextColor3=Color3.new(1,1,1); tl.Font=Enum.Font.GothamBold; tl.TextSize=11; tl.TextXAlignment=Enum.TextXAlignment.Left
+    local sl=Instance.new("TextLabel",row); sl.Size=UDim2.new(1,-72,0,18); sl.Position=UDim2.new(0,14,0,36); sl.BackgroundTransparency=1; sl.Text=desc; sl.TextColor3=Color3.fromRGB(85,85,100); sl.Font=Enum.Font.GothamBold; sl.TextSize=9; sl.TextXAlignment=Enum.TextXAlignment.Left
+    local pill=Instance.new("Frame",row); pill.Size=UDim2.new(0,46,0,28); pill.Position=UDim2.new(1,-58,0.5,-14); pill.BackgroundColor3=init and Color3.fromRGB(52,199,89) or Color3.fromRGB(48,48,62); pill.BorderSizePixel=0; Instance.new("UICorner",pill).CornerRadius=UDim.new(0,6)
+    local kn=Instance.new("Frame",pill); kn.Size=UDim2.new(0,22,0,22); kn.Position=init and UDim2.new(1,-25,0.5,-11) or UDim2.new(0,3,0.5,-11); kn.BackgroundColor3=Color3.new(1,1,1); kn.BorderSizePixel=0; Instance.new("UICorner",kn).CornerRadius=UDim.new(0,4)
     local st=init or false
     local btn=Instance.new("TextButton",row); btn.Size=UDim2.new(1,0,1,0); btn.BackgroundTransparency=1; btn.Text=""
     btn.MouseButton1Click:Connect(function()
@@ -172,20 +172,20 @@ end
 
 local function ValRow(par, title, desc, def, cb)
     local row=Instance.new("Frame",par); row.Size=UDim2.new(1,0,0,62); row.BackgroundColor3=Color3.fromRGB(18,18,26); row.BorderSizePixel=0; Instance.new("UICorner",row).CornerRadius=UDim.new(0,10)
-    local tl=Instance.new("TextLabel",row); tl.Size=UDim2.new(1,-80,0,26); tl.Position=UDim2.new(0,14,0,8); tl.BackgroundTransparency=1; tl.Text=title; tl.TextColor3=Color3.new(1,1,1); tl.Font=Enum.Font.GothamBold; tl.TextSize=13; tl.TextXAlignment=Enum.TextXAlignment.Left
-    local sl=Instance.new("TextLabel",row); sl.Size=UDim2.new(1,-80,0,18); sl.Position=UDim2.new(0,14,0,36); sl.BackgroundTransparency=1; sl.Text=desc; sl.TextColor3=Color3.fromRGB(85,85,100); sl.Font=Enum.Font.Gotham; sl.TextSize=11; sl.TextXAlignment=Enum.TextXAlignment.Left
-    local inp=Instance.new("TextBox",row); inp.Size=UDim2.new(0,58,0,32); inp.Position=UDim2.new(1,-66,0.5,-16); inp.Text=tostring(def); inp.BackgroundColor3=Color3.fromRGB(26,26,38); inp.TextColor3=Color3.new(1,1,1); inp.Font=Enum.Font.GothamBold; inp.TextSize=14; inp.BorderSizePixel=0; Instance.new("UICorner",inp).CornerRadius=UDim.new(0,7)
+    local tl=Instance.new("TextLabel",row); tl.Size=UDim2.new(1,-80,0,26); tl.Position=UDim2.new(0,14,0,8); tl.BackgroundTransparency=1; tl.Text=title; tl.TextColor3=Color3.new(1,1,1); tl.Font=Enum.Font.GothamBold; tl.TextSize=11; tl.TextXAlignment=Enum.TextXAlignment.Left
+    local sl=Instance.new("TextLabel",row); sl.Size=UDim2.new(1,-80,0,18); sl.Position=UDim2.new(0,14,0,36); sl.BackgroundTransparency=1; sl.Text=desc; sl.TextColor3=Color3.fromRGB(85,85,100); sl.Font=Enum.Font.GothamBold; sl.TextSize=9; sl.TextXAlignment=Enum.TextXAlignment.Left
+    local inp=Instance.new("TextBox",row); inp.Size=UDim2.new(0,58,0,32); inp.Position=UDim2.new(1,-66,0.5,-16); inp.Text=tostring(def); inp.BackgroundColor3=Color3.fromRGB(26,26,38); inp.TextColor3=Color3.new(1,1,1); inp.Font=Enum.Font.GothamBold; inp.TextSize=11; inp.BorderSizePixel=0; Instance.new("UICorner",inp).CornerRadius=UDim.new(0,6)
     inp.FocusLost:Connect(function() local v=tonumber(inp.Text) or def; inp.Text=tostring(v); if cb then cb(v) end end)
 end
 
 local function SliderRow(par, title, desc, minV, maxV, def, cb)
     local row=Instance.new("Frame",par); row.Size=UDim2.new(1,0,0,74); row.BackgroundColor3=Color3.fromRGB(18,18,26); row.BorderSizePixel=0; Instance.new("UICorner",row).CornerRadius=UDim.new(0,10)
-    local tl=Instance.new("TextLabel",row); tl.Size=UDim2.new(1,-80,0,22); tl.Position=UDim2.new(0,14,0,7); tl.BackgroundTransparency=1; tl.Text=title; tl.TextColor3=Color3.new(1,1,1); tl.Font=Enum.Font.GothamBold; tl.TextSize=13; tl.TextXAlignment=Enum.TextXAlignment.Left
-    local sl=Instance.new("TextLabel",row); sl.Size=UDim2.new(1,-80,0,16); sl.Position=UDim2.new(0,14,0,26); sl.BackgroundTransparency=1; sl.Text=desc; sl.TextColor3=Color3.fromRGB(85,85,100); sl.Font=Enum.Font.Gotham; sl.TextSize=11; sl.TextXAlignment=Enum.TextXAlignment.Left
-    local vl=Instance.new("TextLabel",row); vl.Size=UDim2.new(0,50,0,22); vl.Position=UDim2.new(1,-60,0,7); vl.BackgroundTransparency=1; vl.Text=tostring(def); vl.TextColor3=Color3.fromRGB(52,199,89); vl.Font=Enum.Font.GothamBold; vl.TextSize=14; vl.TextXAlignment=Enum.TextXAlignment.Right
-    local track=Instance.new("Frame",row); track.Size=UDim2.new(1,-28,0,6); track.Position=UDim2.new(0,14,0,54); track.BackgroundColor3=Color3.fromRGB(40,40,54); track.BorderSizePixel=0; Instance.new("UICorner",track).CornerRadius=UDim.new(1,0)
-    local fill=Instance.new("Frame",track); fill.Size=UDim2.new((def-minV)/(maxV-minV),0,1,0); fill.BackgroundColor3=Color3.fromRGB(52,199,89); fill.BorderSizePixel=0; Instance.new("UICorner",fill).CornerRadius=UDim.new(1,0)
-    local knob=Instance.new("Frame",track); knob.Size=UDim2.new(0,18,0,18); knob.Position=UDim2.new((def-minV)/(maxV-minV),-9,0.5,-9); knob.BackgroundColor3=Color3.new(1,1,1); knob.BorderSizePixel=0; knob.ZIndex=2; Instance.new("UICorner",knob).CornerRadius=UDim.new(1,0)
+    local tl=Instance.new("TextLabel",row); tl.Size=UDim2.new(1,-80,0,22); tl.Position=UDim2.new(0,14,0,7); tl.BackgroundTransparency=1; tl.Text=title; tl.TextColor3=Color3.new(1,1,1); tl.Font=Enum.Font.GothamBold; tl.TextSize=11; tl.TextXAlignment=Enum.TextXAlignment.Left
+    local sl=Instance.new("TextLabel",row); sl.Size=UDim2.new(1,-80,0,16); sl.Position=UDim2.new(0,14,0,26); sl.BackgroundTransparency=1; sl.Text=desc; sl.TextColor3=Color3.fromRGB(85,85,100); sl.Font=Enum.Font.GothamBold; sl.TextSize=9; sl.TextXAlignment=Enum.TextXAlignment.Left
+    local vl=Instance.new("TextLabel",row); vl.Size=UDim2.new(0,50,0,22); vl.Position=UDim2.new(1,-60,0,7); vl.BackgroundTransparency=1; vl.Text=tostring(def); vl.TextColor3=Color3.fromRGB(52,199,89); vl.Font=Enum.Font.GothamBold; vl.TextSize=10
+    local track=Instance.new("Frame",row); track.Size=UDim2.new(1,-28,0,6); track.Position=UDim2.new(0,14,0,54); track.BackgroundColor3=Color3.fromRGB(40,40,54); track.BorderSizePixel=0; Instance.new("UICorner",track).CornerRadius=UDim.new(0,3)
+    local fill=Instance.new("Frame",track); fill.Size=UDim2.new((def-minV)/(maxV-minV),0,1,0); fill.BackgroundColor3=Color3.fromRGB(52,199,89); fill.BorderSizePixel=0; Instance.new("UICorner",fill).CornerRadius=UDim.new(0,3)
+    local knob=Instance.new("Frame",track); knob.Size=UDim2.new(0,18,0,18); knob.Position=UDim2.new((def-minV)/(maxV-minV),-9,0.5,-9); knob.BackgroundColor3=Color3.new(1,1,1); knob.BorderSizePixel=0; Instance.new("UICorner",knob).CornerRadius=UDim.new(0,4)
     local hit=Instance.new("TextButton",row); hit.Size=UDim2.new(1,-20,0,34); hit.Position=UDim2.new(0,10,0,40); hit.BackgroundTransparency=1; hit.Text=""
     local dragging=false
     local function SetFromX(x)
@@ -212,13 +212,13 @@ local function SliderRow(par, title, desc, minV, maxV, def, cb)
 end
 
 local function ActBtn(par, lbl, col, cb)
-    local b=Instance.new("TextButton",par); b.Size=UDim2.new(1,0,0,46); b.BackgroundColor3=col or Color3.fromRGB(52,199,89); b.TextColor3=col and Color3.new(1,1,1) or Color3.fromRGB(0,0,0); b.Text=lbl; b.Font=Enum.Font.GothamBold; b.TextSize=13; b.BorderSizePixel=0; Instance.new("UICorner",b).CornerRadius=UDim.new(0,10)
+    local b=Instance.new("TextButton",par); b.Size=UDim2.new(1,0,0,46); b.BackgroundColor3=col or Color3.fromRGB(52,199,89); b.TextColor3=col and Color3.new(1,1,1) or Color3.fromRGB(0,0,0); b.Text=lbl; b.Font=Enum.Font.GothamBold; b.TextSize=12; b.BorderSizePixel=0; Instance.new("UICorner",b).CornerRadius=UDim.new(0,8)
     b.MouseButton1Click:Connect(cb)
     return b
 end
 
 local function SecLbl(par, txt)
-    local l=Instance.new("TextLabel",par); l.Size=UDim2.new(1,0,0,22); l.BackgroundTransparency=1; l.Text=txt; l.TextColor3=Color3.fromRGB(52,199,89); l.Font=Enum.Font.GothamBold; l.TextSize=11; l.TextXAlignment=Enum.TextXAlignment.Left
+    local l=Instance.new("TextLabel",par); l.Size=UDim2.new(1,0,0,22); l.BackgroundTransparency=1; l.Text=txt; l.TextColor3=Color3.fromRGB(52,199,89); l.Font=Enum.Font.GothamBold; l.TextSize=11; l.TextXAlignment=Enum.TextXAlignment.Left; l.Margin=UDim.new(0,4)
     return l
 end
 
@@ -301,7 +301,7 @@ SecLbl(FT,"  AUTO FARM")
 ActBtn(FT,"🚜  AUTO FARM",Color3.fromRGB(52,199,89),function()
     pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/rexxymayor-ai/SCRIPTtt/refs/heads/main/script%20automs",true))() end)
 end)
-local fn=Instance.new("TextLabel",FT); fn.Size=UDim2.new(1,0,0,28); fn.BackgroundTransparency=1; fn.Text="Ejecuta el script de auto farm externo"; fn.TextColor3=Color3.fromRGB(65,65,80); fn.Font=Enum.Font.Gotham; fn.TextSize=11; fn.TextXAlignment=Enum.TextXAlignment.Left
+local fn=Instance.new("TextLabel",FT); fn.Size=UDim2.new(1,0,0,28); fn.BackgroundTransparency=1; fn.Text="Ejecuta el script de auto farm externo"; fn.TextColor3=Color3.fromRGB(65,65,80); fn.Font=Enum.Font.GothamBold; fn.TextSize=9; fn.TextXAlignment=Enum.TextXAlignment.Left
 
 -- ════════ MISC ════════
 SecLbl(MT,"  MOVIMIENTO")
@@ -499,233 +499,68 @@ local function TPToPlace(pos)
     local hrp=char and char:FindFirstChild("HumanoidRootPart")
     local hum=char and char:FindFirstChildOfClass("Humanoid")
     if not hrp or not hum then return end
-    
-    if IsAdmin then
-        hrp.CFrame=pos+Vector3.new(0,3,0)
-    else
-        if hum.SeatPart then
-            pcall(function() hum.SeatPart.Parent:PivotTo(pos+Vector3.new(0,3,0)) end)
+    if hum.SeatPart then
+        local seat=hum.SeatPart
+        local model=seat:FindFirstAncestorOfClass("Model")
+        if model then
+            pcall(function() model:PivotTo(pos) end)
+        else
+            seat.CFrame=pos
         end
+    else
+        hrp.CFrame=pos
     end
 end
 
 local function RebuildPlacesList()
-    for _,c in pairs(PlacesFrame:GetChildren()) do c:Destroy() end
+    for _,c in pairs(PlacesFrame:GetChildren()) do
+        if c:IsA("Frame") or c:IsA("TextBox") then c:Destroy() end
+    end
     
-    for name, pos in pairs(SavedPlaces) do
+    if IsAdmin then
+        local saveRow=Instance.new("Frame",PlacesFrame)
+        saveRow.Size=UDim2.new(1,0,0,48); saveRow.BackgroundColor3=Color3.fromRGB(18,18,26); saveRow.BorderSizePixel=0
+        Instance.new("UICorner",saveRow).CornerRadius=UDim.new(0,10)
+        local snm=Instance.new("TextLabel",saveRow)
+        snm.Size=UDim2.new(1,-70,1,0); snm.Position=UDim2.new(0,14,0,0); snm.BackgroundTransparency=1
+        snm.Text="📍 Lugar Actual"; snm.TextColor3=Color3.new(1,1,1)
+        snm.Font=Enum.Font.GothamBold; snm.TextSize=12; snm.TextXAlignment=Enum.TextXAlignment.Left
+        local sv=Instance.new("TextButton",saveRow)
+        sv.Size=UDim2.new(0,50,0,32); sv.Position=UDim2.new(1,-58,0.5,-16)
+        sv.BackgroundColor3=Color3.fromRGB(52,199,89); sv.TextColor3=Color3.new(0,0,0)
+        sv.Text=T("💾 Guardar"); sv.Font=Enum.Font.GothamBold; sv.TextSize=10; sv.BorderSizePixel=0
+        Instance.new("UICorner",sv).CornerRadius=UDim.new(0,8)
+        sv.MouseButton1Click:Connect(function()
+            local char=L_Plr.Character
+            local hrp=char and char:FindFirstChild("HumanoidRootPart")
+            if hrp then
+                local h=os.date("%H:%M")
+                table.insert(SavedPlaces, {name=h, pos=hrp.CFrame})
+                RebuildPlacesList()
+                sv.Text="✓"
+                task.wait(0.5)
+                sv.Text=T("💾 Guardar")
+            end
+        end)
+    end
+    
+    for i,place in pairs(SavedPlaces) do
         local prow=Instance.new("Frame",PlacesFrame)
         prow.Size=UDim2.new(1,0,0,48); prow.BackgroundColor3=Color3.fromRGB(18,18,26); prow.BorderSizePixel=0
         Instance.new("UICorner",prow).CornerRadius=UDim.new(0,10)
-        
         local pnm=Instance.new("TextLabel",prow)
         pnm.Size=UDim2.new(1,-80,1,0); pnm.Position=UDim2.new(0,14,0,0); pnm.BackgroundTransparency=1
-        pnm.Text=name; pnm.TextColor3=Color3.new(1,1,1)
+        pnm.Text=place.name; pnm.TextColor3=Color3.new(1,1,1)
         pnm.Font=Enum.Font.GothamBold; pnm.TextSize=12; pnm.TextXAlignment=Enum.TextXAlignment.Left
-        pnm.TextTruncate=Enum.TextTruncate.AtEnd
-        
-        local ptp=Instance.new("TextButton",prow)
-        ptp.Size=UDim2.new(0,60,0,32); ptp.Position=UDim2.new(1,-68,0.5,-16)
-        ptp.BackgroundColor3=Color3.fromRGB(52,199,89); ptp.TextColor3=Color3.new(0,0,0)
-        ptp.Text="TP"; ptp.Font=Enum.Font.GothamBold; ptp.TextSize=12; ptp.BorderSizePixel=0
-        Instance.new("UICorner",ptp).CornerRadius=UDim.new(0,8)
-        ptp.MouseButton1Click:Connect(function() TPToPlace(pos) end)
-    end
-end
-
-if IsAdmin then
-    local adminHdr=SecLbl(TT,"⭐ ADMIN TOOLS"); adminHdr.LayoutOrder=39
-    local guarBtn=ActBtn(TT,"💾 Guardar Lugar Actual",Color3.fromRGB(34,160,60),function()
-        local char=L_Plr.Character
-        local hrp=char and char:FindFirstChild("HumanoidRootPart")
-        if not hrp then return end
-        
-        local pname=tostring(os.date("%Y-%m-%d %H:%M:%S"))
-        SavedPlaces[pname]=hrp.Position
-        RebuildPlacesList()
-        
-        guarBtn.Text="✓ Listo"
-        guarBtn.BackgroundColor3=Color3.fromRGB(100,200,100)
-        task.wait(1)
-        guarBtn.Text="💾 Guardar Lugar Actual"
-        guarBtn.BackgroundColor3=Color3.fromRGB(34,160,60)
-    end); guarBtn.LayoutOrder=39
-end
-
-local refreshPlacesBtn=ActBtn(TT,"🔄  Refrescar Lugares",Color3.fromRGB(34,160,60),function() RebuildPlacesList() end); refreshPlacesBtn.LayoutOrder=42
-RebuildPlacesList()
-
--- ════════ HELPERS ════════
-local function FindMySeat()
-    local char=L_Plr.Character
-    if not char then return nil end
-    local hum=char:FindFirstChildOfClass("Humanoid")
-    if hum and hum.SeatPart then return hum.SeatPart end
-    return nil
-end
-
-local function StartHub()
-    local function CreateESP(plr)
-        local Box=Drawing.new("Square"); Box.Thickness=1; Box.Filled=false; Box.Color=Color3.fromRGB(52,199,89); Box.Visible=false
-        local Nm=Drawing.new("Text"); Nm.Size=13; Nm.Center=true; Nm.Outline=true; Nm.Color=Color3.new(1,1,1); Nm.Visible=false
-        local Ds=Drawing.new("Text"); Ds.Size=13; Ds.Center=true; Ds.Outline=true; Ds.Color=Color3.new(1,1,1); Ds.Visible=false
-        local Wp=Drawing.new("Text"); Wp.Size=13; Wp.Center=true; Wp.Outline=true; Wp.Color=Color3.fromRGB(52,199,89); Wp.Visible=false
-        local Ln=Drawing.new("Line"); Ln.Thickness=1; Ln.Color=Color3.fromRGB(52,199,89); Ln.Visible=false
-        local HB=Drawing.new("Square"); HB.Thickness=1; HB.Filled=true; HB.Visible=false
-        RunService.RenderStepped:Connect(function()
-            if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and plr.Character:FindFirstChild("Humanoid") and plr~=L_Plr then
-                local HRP=plr.Character.HumanoidRootPart; local Hum=plr.Character.Humanoid
-                local Pos,OnScr=Camera:WorldToViewportPoint(HRP.Position)
-                if OnScr then
-                    local S=Camera:WorldToViewportPoint(HRP.Position-Vector3.new(0,3,0)).Y-Camera:WorldToViewportPoint(HRP.Position+Vector3.new(0,2.6,0)).Y
-                    local BS=Vector2.new(S/1.5,S); local BP=Vector2.new(Pos.X-BS.X/2,Pos.Y-BS.Y/2)
-                    Box.Visible=_G.Visuals.Box; Box.Size=BS; Box.Position=BP
-                    Nm.Visible=_G.Visuals.Names; Nm.Text=plr.Name; Nm.Position=Vector2.new(Pos.X,BP.Y-15)
-                    local myH=L_Plr.Character and L_Plr.Character:FindFirstChild("HumanoidRootPart")
-                    Ds.Visible=_G.Visuals.Dist; Ds.Text="["..((myH and math.floor((myH.Position-HRP.Position).Magnitude)) or 0).."m]"; Ds.Position=Vector2.new(Pos.X,BP.Y+BS.Y+5)
-                    local t=plr.Character:FindFirstChildOfClass("Tool"); Wp.Visible=_G.Visuals.Weapon; Wp.Text=t and t.Name or "Hands"; Wp.Position=Vector2.new(Pos.X,BP.Y+BS.Y+18)
-                    Ln.Visible=_G.Visuals.Tracers; Ln.From=Vector2.new(Camera.ViewportSize.X/2,0); Ln.To=Vector2.new(Pos.X,BP.Y)
-                    HB.Visible=_G.Visuals.HealthBar; HB.Size=Vector2.new(2,(Hum.Health/Hum.MaxHealth)*BS.Y); HB.Position=Vector2.new(BP.X-5,BP.Y+(BS.Y-HB.Size.Y)); HB.Color=Color3.fromHSV(Hum.Health/Hum.MaxHealth*0.3,1,1)
-                else Box.Visible=false;Nm.Visible=false;Ds.Visible=false;Wp.Visible=false;Ln.Visible=false;HB.Visible=false end
-            else Box.Visible=false;Nm.Visible=false;Ds.Visible=false;Wp.Visible=false;Ln.Visible=false;HB.Visible=false end
+        local pt=Instance.new("TextButton",prow)
+        pt.Size=UDim2.new(0,60,0,32); pt.Position=UDim2.new(1,-68,0.5,-16)
+        pt.BackgroundColor3=Color3.fromRGB(52,199,89); pt.TextColor3=Color3.new(0,0,0)
+        pt.Text="TP"; pt.Font=Enum.Font.GothamBold; pt.TextSize=12; pt.BorderSizePixel=0
+        Instance.new("UICorner",pt).CornerRadius=UDim.new(0,8)
+        pt.MouseButton1Click:Connect(function()
+            TPToPlace(place.pos)
         end)
     end
-    for _,p in pairs(Players:GetPlayers()) do if p~=L_Plr then CreateESP(p) end end
-    Players.PlayerAdded:Connect(CreateESP)
-
-    local hbTick=0
-    RunService.Heartbeat:Connect(function()
-        if _G.Misc.Speed_On and L_Plr.Character and L_Plr.Character:FindFirstChild("Humanoid") then
-            L_Plr.Character.Humanoid.WalkSpeed=math.min(_G.Misc.SpeedVal,23)
-        end
-        if _G.Misc.FullBright then
-            game:GetService("Lighting").Brightness=10
-            game:GetService("Lighting").ClockTime=14
-        end
-        hbTick=hbTick+1
-        if hbTick%3==0 then
-            for _,p in pairs(Players:GetPlayers()) do
-                if p~=L_Plr and p.Character then
-                    for n,act in pairs(_G.Parts_Active) do
-                        if act then
-                            local part=p.Character:FindFirstChild(n)
-                            if part and part:IsA("BasePart") then
-                                part.Size=Vector3.new(_G.Hitbox_Size,_G.Hitbox_Size,_G.Hitbox_Size)
-                                part.CanCollide=false; part.Massless=true; part.Transparency=1
-                            end
-                        end
-                    end
-                end
-            end
-        end
-        if _G.Misc.FlyMoto then
-            local seat=FindMySeat()
-            if not seat then
-                if LastFlySeat then ClearSeatMovers(LastFlySeat); LastFlySeat=nil end
-                _G.Misc.FlyUp=false; _G.Misc.FlyDown=false
-            else
-                if LastFlySeat and LastFlySeat~=seat then ClearSeatMovers(LastFlySeat) end
-                LastFlySeat=seat
-                local bv=seat:FindFirstChild("JXJFly")
-                if not bv then
-                    bv=Instance.new("BodyVelocity"); bv.Name="JXJFly"
-                    bv.MaxForce=Vector3.new(math.huge,math.huge,math.huge)
-                    bv.P=9000; bv.Parent=seat
-                end
-                local bg=seat:FindFirstChild("JXJFlyG")
-                if not bg then
-                    bg=Instance.new("BodyGyro"); bg.Name="JXJFlyG"
-                    bg.MaxTorque=Vector3.new(math.huge,math.huge,math.huge)
-                    bg.P=9000; bg.D=500; bg.Parent=seat
-                end
-                local camLook=Camera.CFrame.LookVector
-                local flat=Vector3.new(camLook.X,0,camLook.Z)
-                if flat.Magnitude>0.01 then
-                    bg.CFrame=CFrame.new(seat.Position, seat.Position+flat.Unit)
-                end
-                local vy=0
-                if _G.Misc.FlyUp then vy=_G.Misc.FlyMotoSpeed elseif _G.Misc.FlyDown then vy=-_G.Misc.FlyMotoSpeed end
-                local horiz=Vector3.new(0,0,0)
-                local thr=seat:IsA("VehicleSeat") and seat.Throttle or 0
-                if thr==0 then
-                    local hmob=L_Plr.Character and L_Plr.Character:FindFirstChildOfClass("Humanoid")
-                    if hmob and hmob.MoveDirection.Magnitude>0.1 and flat.Magnitude>0.01 then
-                        local dot=hmob.MoveDirection:Dot(flat.Unit)
-                        if dot>0.25 then thr=1 elseif dot<-0.25 then thr=-1 end
-                    end
-                end
-                if thr~=0 and flat.Magnitude>0.01 then
-                    horiz=flat.Unit*(_G.Misc.FlyMotoSpeed*thr)
-                end
-                bv.Velocity=Vector3.new(horiz.X,vy,horiz.Z)
-            end
-        end
-        if _G.Misc.FlyChar then
-            local char=L_Plr.Character
-            local hrp=char and char:FindFirstChild("HumanoidRootPart")
-            local hum=char and char:FindFirstChildOfClass("Humanoid")
-            if hrp and hum and not hum.SeatPart then
-                local bv=hrp:FindFirstChild("JXJCF")
-                if not bv then
-                    bv=Instance.new("BodyVelocity"); bv.Name="JXJCF"
-                    bv.MaxForce=Vector3.new(math.huge,math.huge,math.huge)
-                    bv.P=1200; bv.Parent=hrp
-                end
-                local bg=hrp:FindFirstChild("JXJCG"); if bg then bg:Destroy() end
-                hum.PlatformStand=true
-                if hum:GetState()~=Enum.HumanoidStateType.Physics then
-                    hum:ChangeState(Enum.HumanoidStateType.Physics)
-                end
-                local av=hrp:FindFirstChild("JXJCAV")
-                if not av then
-                    av=Instance.new("BodyAngularVelocity"); av.Name="JXJCAV"
-                    av.AngularVelocity=Vector3.new(0,0,0)
-                    av.MaxTorque=Vector3.new(3000,3000,3000)
-                    av.P=1200; av.Parent=hrp
-                end
-                local camLook=Camera.CFrame.LookVector
-                local md=hum.MoveDirection
-                local vy
-                if _G.Misc.FlyUp then vy=_G.Misc.FlyCharSpeed
-                elseif _G.Misc.FlyDown then vy=-_G.Misc.FlyCharSpeed
-                elseif md.Magnitude>0.05 then
-                    vy=camLook.Y*_G.Misc.FlyCharSpeed
-                else
-                    vy=-2+math.sin(tick()*1.5)*1.5
-                end
-                local target=Vector3.new(md.X*_G.Misc.FlyCharSpeed,vy,md.Z*_G.Misc.FlyCharSpeed)
-                bv.Velocity=bv.Velocity:Lerp(target,0.18)
-            elseif hrp then
-                local bv=hrp:FindFirstChild("JXJCF"); if bv then bv:Destroy() end
-                local bg=hrp:FindFirstChild("JXJCG"); if bg then bg:Destroy() end
-                local av=hrp:FindFirstChild("JXJCAV"); if av then av:Destroy() end
-                if hum then
-                    hum.PlatformStand=false
-                    hum:ChangeState(Enum.HumanoidStateType.GettingUp)
-                end
-            end
-        end
-    end)
 end
 
--- ════════ HTTP wrapper ════════
-local function httpGet(url)
-    if request then
-        local ok,r=pcall(request,{Url=url,Method="GET"})
-        if ok and r and r.Body then return r.Body end
-    end
-    if syn and syn.request then
-        local ok,r=pcall(syn.request,{Url=url,Method="GET"})
-        if ok and r and r.Body then return r.Body end
-    end
-    if http and http.request then
-        local ok,r=pcall(http.request,{Url=url,Method="GET"})
-        if ok and r then return r.body or r.Body end
-    end
-    if http_request then
-        local ok,r=pcall(http_request,{Url=url,Method="GET"})
-        if ok and r and r.Body then return r.Body end
-    end
-    return HttpService:GetAsync(url,true)
-end
-
-StartHub()
+RebuildPlacesList()
