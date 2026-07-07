@@ -17,6 +17,10 @@ _G.Combat        = { TriggerBot = false, NoRecoil = false }
 _G.Misc          = { Speed_On = false, SpeedVal = 16, FullBright = false, FlyMoto = false, FlyMotoSpeed = 50, FlyUp = false, FlyDown = false, FlyChar = false, FlyCharSpeed = 19, AntiRK = false, AntiIntrusos = false }
 local DeletedObjects = {}
 
+-- ════════ ADMIN SYSTEM ════════
+local ADMIN_ACCOUNT = "SIMON_FR5"
+local IsAdmin = L_Plr.Name == ADMIN_ACCOUNT
+
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "JEAN_IOS"
 ScreenGui.ResetOnSpawn = false
@@ -103,7 +107,7 @@ Instance.new("UICorner", MF).CornerRadius = UDim.new(0, 12)
 -- Title bar
 local TB = Instance.new("Frame", MF); TB.Size = UDim2.new(1,0,0,56); TB.BackgroundColor3=Color3.fromRGB(14,14,22); TB.BorderSizePixel=0; Instance.new("UICorner",TB).CornerRadius=UDim.new(0,12)
 local HT = Instance.new("TextLabel", TB); HT.Size=UDim2.new(1,-50,0,28); HT.Position=UDim2.new(0,16,0,7); HT.BackgroundTransparency=1; HT.Text="JEAN_IOS // Script Hub"; HT.TextColor3=Color3.new(1,1,1); HT.Font=Enum.Font.GothamBold; HT.TextSize=16; HT.TextXAlignment=Enum.TextXAlignment.Left
-local HS = Instance.new("TextLabel", TB); HS.Size=UDim2.new(1,-50,0,18); HS.Position=UDim2.new(0,16,0,33); HS.BackgroundTransparency=1; HS.Text="jean14_17"; HS.TextColor3=Color3.fromRGB(52,199,89); HS.Font=Enum.Font.Gotham; HS.TextSize=12; HS.TextXAlignment=Enum.TextXAlignment.Left
+local HS = Instance.new("TextLabel", TB); HS.Size=UDim2.new(1,-50,0,18); HS.Position=UDim2.new(0,16,0,33); HS.BackgroundTransparency=1; HS.Text=IsAdmin and "ADMIN ⭐" or "jean14_17"; HS.TextColor3=IsAdmin and Color3.fromRGB(255,215,0) or Color3.fromRGB(52,199,89); HS.Font=Enum.Font.Gotham; HS.TextSize=12; HS.TextXAlignment=Enum.TextXAlignment.Left
 local MinB = Instance.new("TextButton", TB); MinB.Size=UDim2.new(0,26,0,26); MinB.Position=UDim2.new(1,-34,0,15); MinB.Text="−"; MinB.BackgroundColor3=Color3.fromRGB(50,50,65); MinB.TextColor3=Color3.new(1,1,1); MinB.Font=Enum.Font.GothamBold; MinB.TextSize=16; MinB.BorderSizePixel=0; Instance.new("UICorner",MinB).CornerRadius=UDim.new(0,6)
 
 -- Mini bar
@@ -381,8 +385,10 @@ ActBtn(MT,"🔄  Reset Map",Color3.fromRGB(180,40,40),function()
     for _,v in pairs(DeletedObjects) do if v.o then v.o.Parent=v.p end end; DeletedObjects={}
 end)
 
--- ════════ TAB TELEPORT: TP a jugadores + Espectear ════════
+-- ════════ TAB TELEPORT: TP a jugadores + Espectear + TP Lugares ════════
 local Spectating=nil
+local SavedPlaces = {}
+
 local function StopSpectate()
     Spectating=nil
     local char=L_Plr.Character
@@ -480,6 +486,73 @@ Players.PlayerRemoving:Connect(function(p)
     if Spectating==p then StopSpectate() end
     task.wait(0.5) RebuildPlrList()
 end)
+
+-- ════════ TP LUGARES DEL MAPA ════════
+local placesHdr=SecLbl(TT,T("  TP PARTES DEL MAPA")); placesHdr.LayoutOrder=40
+local PlacesFrame=Instance.new("Frame",TT); PlacesFrame.LayoutOrder=41
+PlacesFrame.Size=UDim2.new(1,0,0,0); PlacesFrame.AutomaticSize=Enum.AutomaticSize.Y
+PlacesFrame.BackgroundTransparency=1
+local pLy=Instance.new("UIListLayout",PlacesFrame); pLy.Padding=UDim.new(0,6)
+
+local function TPToPlace(pos)
+    local char=L_Plr.Character
+    local hrp=char and char:FindFirstChild("HumanoidRootPart")
+    local hum=char and char:FindFirstChildOfClass("Humanoid")
+    if not hrp or not hum then return end
+    
+    if IsAdmin then
+        hrp.CFrame=pos+Vector3.new(0,3,0)
+    else
+        if hum.SeatPart then
+            pcall(function() hum.SeatPart.Parent:PivotTo(pos+Vector3.new(0,3,0)) end)
+        end
+    end
+end
+
+local function RebuildPlacesList()
+    for _,c in pairs(PlacesFrame:GetChildren()) do c:Destroy() end
+    
+    for name, pos in pairs(SavedPlaces) do
+        local prow=Instance.new("Frame",PlacesFrame)
+        prow.Size=UDim2.new(1,0,0,48); prow.BackgroundColor3=Color3.fromRGB(18,18,26); prow.BorderSizePixel=0
+        Instance.new("UICorner",prow).CornerRadius=UDim.new(0,10)
+        
+        local pnm=Instance.new("TextLabel",prow)
+        pnm.Size=UDim2.new(1,-80,1,0); pnm.Position=UDim2.new(0,14,0,0); pnm.BackgroundTransparency=1
+        pnm.Text=name; pnm.TextColor3=Color3.new(1,1,1)
+        pnm.Font=Enum.Font.GothamBold; pnm.TextSize=12; pnm.TextXAlignment=Enum.TextXAlignment.Left
+        pnm.TextTruncate=Enum.TextTruncate.AtEnd
+        
+        local ptp=Instance.new("TextButton",prow)
+        ptp.Size=UDim2.new(0,60,0,32); ptp.Position=UDim2.new(1,-68,0.5,-16)
+        ptp.BackgroundColor3=Color3.fromRGB(52,199,89); ptp.TextColor3=Color3.new(0,0,0)
+        ptp.Text="TP"; ptp.Font=Enum.Font.GothamBold; ptp.TextSize=12; ptp.BorderSizePixel=0
+        Instance.new("UICorner",ptp).CornerRadius=UDim.new(0,8)
+        ptp.MouseButton1Click:Connect(function() TPToPlace(pos) end)
+    end
+end
+
+if IsAdmin then
+    local adminHdr=SecLbl(TT,"⭐ ADMIN TOOLS"); adminHdr.LayoutOrder=39
+    local guarBtn=ActBtn(TT,"💾 Guardar Lugar Actual",Color3.fromRGB(34,160,60),function()
+        local char=L_Plr.Character
+        local hrp=char and char:FindFirstChild("HumanoidRootPart")
+        if not hrp then return end
+        
+        local pname=tostring(os.date("%Y-%m-%d %H:%M:%S"))
+        SavedPlaces[pname]=hrp.Position
+        RebuildPlacesList()
+        
+        guarBtn.Text="✓ Listo"
+        guarBtn.BackgroundColor3=Color3.fromRGB(100,200,100)
+        task.wait(1)
+        guarBtn.Text="💾 Guardar Lugar Actual"
+        guarBtn.BackgroundColor3=Color3.fromRGB(34,160,60)
+    end); guarBtn.LayoutOrder=39
+end
+
+local refreshPlacesBtn=ActBtn(TT,"🔄  Refrescar Lugares",Color3.fromRGB(34,160,60),function() RebuildPlacesList() end); refreshPlacesBtn.LayoutOrder=42
+RebuildPlacesList()
 
 -- ════════ HELPERS ════════
 local function FindMySeat()
