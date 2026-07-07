@@ -1,52 +1,5 @@
 -- [[ JEAN_IOS // Script Hub ]]
 -- jean x jay | discord: jean14_17
--- SISTEMA DE WHITELIST - SOLO USUARIOS AUTORIZADOS
-
--- ════════ WHITELIST CONFIG ════════
-local WHITELIST = {
-    8254957593,  -- Tu ID (PROPIETARIO)
-    -- Agrega más IDs aquí: 123456789, 987654321, etc.
-}
-
-local function CheckWhitelist()
-    local userId = game:GetService("Players").LocalPlayer.UserId
-    for _, id in pairs(WHITELIST) do
-        if id == userId then
-            return true
-        end
-    end
-    return false
-end
-
--- Si no está en whitelist, no ejecutar nada
-if not CheckWhitelist() then
-    local notif = Instance.new("ScreenGui")
-    notif.Name = "WhitelistNotif"
-    notif.ResetOnSpawn = false
-    notif.Parent = (gethui and gethui()) or game:GetService("CoreGui")
-    
-    local warn = Instance.new("Frame", notif)
-    warn.Size = UDim2.new(0, 400, 0, 120)
-    warn.Position = UDim2.new(0.5, -200, 0.5, -60)
-    warn.BackgroundColor3 = Color3.fromRGB(180, 40, 40)
-    warn.BorderSizePixel = 0
-    Instance.new("UICorner", warn).CornerRadius = UDim.new(0, 12)
-    
-    local txt = Instance.new("TextLabel", warn)
-    txt.Size = UDim2.new(1, 0, 1, 0)
-    txt.BackgroundTransparency = 1
-    txt.Text = "❌ NO AUTORIZADO\n\nEste script es exclusivo.\nNo tienes permiso para usarlo."
-    txt.TextColor3 = Color3.new(1, 1, 1)
-    txt.Font = Enum.Font.GothamBold
-    txt.TextSize = 14
-    txt.TextScaled = true
-    
-    task.wait(3)
-    notif:Destroy()
-    return
-end
-
--- ════════ SCRIPT PRINCIPAL ════════
 
 local Players      = game:GetService("Players")
 local L_Plr        = Players.LocalPlayer
@@ -150,7 +103,7 @@ Instance.new("UICorner", MF).CornerRadius = UDim.new(0, 12)
 -- Title bar
 local TB = Instance.new("Frame", MF); TB.Size = UDim2.new(1,0,0,56); TB.BackgroundColor3=Color3.fromRGB(14,14,22); TB.BorderSizePixel=0; Instance.new("UICorner",TB).CornerRadius=UDim.new(0,12)
 local HT = Instance.new("TextLabel", TB); HT.Size=UDim2.new(1,-50,0,28); HT.Position=UDim2.new(0,16,0,7); HT.BackgroundTransparency=1; HT.Text="JEAN_IOS // Script Hub"; HT.TextColor3=Color3.new(1,1,1); HT.Font=Enum.Font.GothamBold; HT.TextSize=16; HT.TextXAlignment=Enum.TextXAlignment.Left
-local HS = Instance.new("TextLabel", TB); HS.Size=UDim2.new(1,-50,0,18); HS.Position=UDim2.new(0,16,0,33); HS.BackgroundTransparency=1; HS.Text="jean14_17 • PROTEGIDO ✓"; HS.TextColor3=Color3.fromRGB(52,199,89); HS.Font=Enum.Font.Gotham; HS.TextSize=12; HS.TextXAlignment=Enum.TextXAlignment.Left
+local HS = Instance.new("TextLabel", TB); HS.Size=UDim2.new(1,-50,0,18); HS.Position=UDim2.new(0,16,0,33); HS.BackgroundTransparency=1; HS.Text="jean14_17"; HS.TextColor3=Color3.fromRGB(52,199,89); HS.Font=Enum.Font.Gotham; HS.TextSize=12; HS.TextXAlignment=Enum.TextXAlignment.Left
 local MinB = Instance.new("TextButton", TB); MinB.Size=UDim2.new(0,26,0,26); MinB.Position=UDim2.new(1,-34,0,15); MinB.Text="−"; MinB.BackgroundColor3=Color3.fromRGB(50,50,65); MinB.TextColor3=Color3.new(1,1,1); MinB.Font=Enum.Font.GothamBold; MinB.TextSize=16; MinB.BorderSizePixel=0; Instance.new("UICorner",MinB).CornerRadius=UDim.new(0,6)
 
 -- Mini bar
